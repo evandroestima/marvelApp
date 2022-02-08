@@ -1,0 +1,10 @@
+{
+  "name": "marvelApp",
+  "displayName": "marvelApp",
+  "ios": {
+    "bundleIdentifier": "com.yourcompany.yourappname"
+ },
+ "android": {
+    "package": "com.yourcompany.yourappname"
+ }
+}
