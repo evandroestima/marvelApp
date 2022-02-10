@@ -1,29 +1,44 @@
 import React from 'react';
 import { Text, Image, SafeAreaView, View, StyleSheet } from 'react-native';
 
-const Details = (props) => {
-    console.log(props)
+const Details = ({ route, navigation }) => {
+
+    const { name, description, thumbnail } = route.params;
+
+    const { path, extension } = thumbnail;
+
     return (
         <>
             <SafeAreaView style={styles.containerItem}>
-                <Image style={styles.image} source={{ uri: `${props.thumbnail.path}.${props.thumbnail.extension}` }} />
-                <Text style={styles.title}>{props.name}</Text>
+                <Image style={styles.image} source={{ uri: `${path}.${extension}` }} />
+                <Text style={styles.title}>{name}</Text>
+                <Text style={styles.description} > {description} </Text>
             </SafeAreaView>
-            <View style={{ flex: 1, height: 1, backgroundColor: '#D42026', marginLeft: -440, }} />
         </>
     )
 }
 
 const styles = StyleSheet.create({
+    containerItem: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#d42026',
+    },
+    description: {
+        fontSize: 20,
+        textAlign: 'center',
+        marginVertical: 10,
+    },
     image: {
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
         borderRadius: 10,
         marginLeft: 10,
-        marginTop: 10,
+        marginTop: -50,
     },
     title: {
-        fontSize: 20,
+        fontSize: 30,
         fontFamily: "Roboto",
         fontWeight: "bold",
         marginTop: 12,
